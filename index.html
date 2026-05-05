@@ -1,0 +1,387 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MetaScrub — Free Metadata Scrubber & Privacy Cleaner | by Karanam Shrivasta</title>
+  <meta name="description" content="Remove hidden metadata from photos, PDFs, Word docs, and MP3s. Protect your privacy by scrubbing EXIF data, GPS coordinates, author info, and more. 100% browser-based — files never leave your device. Built by Karanam Shrivasta.">
+  <meta name="keywords" content="metadata remover, EXIF remover, metadata scrubber, remove GPS from photo, PDF metadata cleaner, DOCX metadata remover, privacy tool, image metadata strip, ID3 tag remover, free metadata tool, karanam shrivasta, mrshrivasta">
+  <meta name="author" content="Karanam Shrivasta">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://mrshrivasta.github.io/metascrub/">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://mrshrivasta.github.io/metascrub/">
+  <meta property="og:title" content="MetaScrub — Free Metadata Scrubber & Privacy Cleaner">
+  <meta property="og:description" content="Remove EXIF, GPS, PDF, Office, and ID3 metadata locally in your browser.">
+  <meta property="og:image" content="https://mrshrivasta.github.io/metascrub/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="MetaScrub — Free Metadata Scrubber & Privacy Cleaner">
+  <meta name="twitter:description" content="100% browser-based metadata scrubbing. Files never leave your device.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "MetaScrub",
+    "url": "https://mrshrivasta.github.io/metascrub/",
+    "description": "Browser-based metadata scrubber and privacy cleaner for images, PDFs, Office docs, and audio files.",
+    "featureList": ["EXIF metadata removal", "GPS coordinate scrubbing", "PDF metadata cleaning", "DOCX metadata removal", "ID3 tag stripping", "Batch file processing", "100% client-side processing"],
+    "author": {"@type": "Person", "name": "Karanam Shrivasta", "url": "https://github.com/mrshrivasta", "sameAs": ["https://www.linkedin.com/in/karanam-shrivasta/", "https://github.com/mrshrivasta"]},
+    "applicationCategory": "SecurityApplication",
+    "operatingSystem": "Any",
+    "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}
+  }
+  </script>
+  <style>
+    :root{--bg:#070b12;--bg2:#0d1321;--card:#101827;--card2:#162035;--border:#1e2d45;--border2:#2a3f5f;--accent:#06b6d4;--accent2:#22d3ee;--accent-dark:#0891b2;--green:#10b981;--green2:#34d399;--amber:#f59e0b;--red:#ef4444;--red2:#f87171;--purple:#8b5cf6;--text:#e2e8f0;--text2:#94a3b8;--text3:#4b5e7a;--shadow:0 24px 80px rgba(0,0,0,.32)}
+    body.light{--bg:#f0f4f8;--bg2:#e8edf5;--card:#ffffff;--card2:#f8fafc;--border:#dde3ed;--border2:#c4cfe0;--text:#0f172a;--text2:#475569;--text3:#94a3b8;--shadow:0 18px 60px rgba(15,23,42,.10)}
+    *{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;background:linear-gradient(180deg,var(--bg),var(--bg2));color:var(--text);font-family:"Plus Jakarta Sans",system-ui,sans-serif;min-height:100vh} button,input{font:inherit} button{cursor:pointer} a{color:var(--accent2)} :focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+    .hero{position:relative;overflow:hidden;min-height:390px;padding:34px 20px 62px;background:radial-gradient(circle at 20% 20%,rgba(6,182,212,.28),transparent 34%),radial-gradient(circle at 80% 10%,rgba(139,92,246,.26),transparent 36%),linear-gradient(135deg,#061013,#13091f);animation:mesh 8s ease infinite alternate}
+    @keyframes mesh{from{background-position:0 0,100% 0,0 0}to{background-position:80px 50px,-80px 70px,0 0}} .topbar{max-width:1180px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px;position:relative;z-index:2}.brand{display:flex;align-items:center;gap:14px}.logo{width:52px;height:52px;filter:drop-shadow(0 0 18px rgba(34,211,238,.45))}.theme-toggle{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);color:#e2e8f0;border-radius:999px;padding:10px 14px}.hero-copy{position:relative;z-index:2;max-width:780px;margin:50px auto 0;text-align:center}.hero h1{margin:0;font-size:clamp(2.25rem,8vw,3rem);font-weight:800;background:linear-gradient(135deg,#06b6d4,#8b5cf6);-webkit-background-clip:text;background-clip:text;color:transparent;letter-spacing:0}.hero p{color:#91a5bd;font-weight:300;font-size:1.15rem}.private-pill,.removed-badge{display:inline-flex;align-items:center;gap:9px;border-radius:999px;border:1px solid rgba(16,185,129,.45);background:rgba(16,185,129,.15);color:#a7f3d0;padding:10px 16px;font-weight:700}.particle{position:absolute;width:4px;height:4px;border-radius:50%;background:rgba(34,211,238,.58);animation:float 7s ease-in-out infinite}.particle:nth-child(odd){background:rgba(139,92,246,.5)}@keyframes float{50%{transform:translateY(-28px) scale(1.6);opacity:.35}}
+    .wrap{max-width:1180px;margin:-42px auto 0;padding:0 20px 36px;position:relative;z-index:3}.card{background:linear-gradient(180deg,var(--card),var(--card2));border:1px solid var(--border);border-radius:8px;box-shadow:var(--shadow)}.drop-zone{min-height:220px;border:2px dashed var(--border2);border-radius:20px;display:grid;place-items:center;text-align:center;padding:30px;background:rgba(16,24,39,.72);transition:.25s}.drop-zone.dragover{border-style:solid;border-color:var(--accent);background:rgba(6,182,212,.08);animation:pulseBorder 1s infinite}.drop-zone.dragover .upload-icon{transform:scale(1.1);animation:bounce .65s infinite alternate}.drop-hint{display:none}.drop-zone.dragover .drop-hint{display:block;color:var(--accent2);font-weight:800}@keyframes pulseBorder{50%{box-shadow:0 0 0 8px rgba(6,182,212,.08)}}@keyframes bounce{to{transform:translateY(-7px) scale(1.1)}}.upload-icon{color:var(--accent2);transition:.2s}.drop-zone h2{margin:12px 0 6px}.muted{color:var(--text2)}.btn{border-radius:12px;border:1px solid var(--border2);background:var(--card2);color:var(--text);padding:11px 16px;font-weight:700;display:inline-flex;gap:8px;align-items:center;justify-content:center}.btn.primary{border:0;color:#fff;padding:12px 28px;background:linear-gradient(135deg,#06b6d4,#8b5cf6);position:relative;overflow:hidden}.btn.primary:after{content:"";position:absolute;inset:0;transform:translateX(-120%);background:linear-gradient(90deg,transparent,rgba(255,255,255,.25),transparent)}.btn.primary:hover:after{animation:shimmer .8s}@keyframes shimmer{to{transform:translateX(120%)}}.btn.download{background:rgba(16,185,129,.15);border-color:var(--green);color:var(--green2)}.btn.danger{border:0;background:transparent;color:var(--red2);opacity:.7;padding:6px}.btn.danger:hover{opacity:1}.pills{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:18px}.pill{font-size:.76rem;padding:6px 10px;border:1px solid var(--border);border-radius:999px;color:var(--text2);background:rgba(255,255,255,.03)}
+    .toolbar,.summary,.workspace,.log-panel,.how,.footer{margin-top:18px}.toolbar{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:16px}.toolbar-group{display:flex;gap:10px;flex-wrap:wrap}.workspace{display:grid;grid-template-columns:300px 1fr;gap:18px}.panel{padding:18px}.panel-title{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:0 0 14px}.queue{max-height:480px;overflow:auto;display:grid;gap:10px}.file-row{display:grid;grid-template-columns:42px 1fr auto;gap:10px;align-items:center;border:1px solid var(--border);border-radius:8px;background:var(--card2);padding:10px;border-left:3px solid transparent}.file-row.active{border-left-color:var(--accent);background:rgba(6,182,212,.08)}.type-icon{width:36px;height:36px;border-radius:8px;display:grid;place-items:center;font-size:.7rem;font-weight:800;color:#fff}.image{background:#0891b2}.pdf{background:#ef4444}.office{background:#8b5cf6}.audio{background:#10b981}.video{background:#f59e0b}.unknown{background:#64748b}.file-name{font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.file-meta{font-size:.78rem;color:var(--text2)}.status{font-size:.72rem;font-weight:800;border-radius:999px;padding:5px 8px;white-space:nowrap}.pending{background:#1a2035;color:var(--text2)}.scanning{background:#0a1a2d;color:var(--accent2)}.has-metadata{background:#2d1a00;color:var(--amber)}.scrubbed,.clean{background:#0a2d1a;color:var(--green2)}.empty{min-height:430px;display:grid;place-items:center;text-align:center;color:var(--text2)}.score{display:flex;gap:12px;align-items:center;justify-content:space-between;border:1px solid var(--border);background:var(--card2);padding:14px;border-radius:8px;margin-bottom:14px}.score strong{font-size:1.5rem}.score.clean-score strong{color:var(--green2)}.score.risky strong{color:var(--red2)}.controls{display:flex;flex-wrap:wrap;gap:10px;margin:12px 0}.checks{display:flex;flex-wrap:wrap;gap:10px;color:var(--text2);font-size:.85rem}.checks label{border:1px solid var(--border);border-radius:999px;padding:7px 10px;background:var(--card2)}
+    details.meta-section{border:1px solid var(--border);border-radius:8px;margin:12px 0;overflow:hidden;animation:slide .35s ease both}summary{list-style:none;cursor:pointer}.section-head{display:flex;align-items:center;gap:10px;padding:13px 14px;background:var(--card2);font-weight:800}.section-head .count{margin-left:auto}.tip{width:22px;height:22px;border-radius:50%;border:1px solid var(--border2);display:inline-grid;place-items:center;color:var(--accent2);font-size:.8rem;position:relative}.tip:hover:after,.tip:focus:after{content:attr(data-tip);position:absolute;z-index:5;top:28px;right:0;width:min(260px,70vw);background:#020617;color:#e2e8f0;border:1px solid var(--border2);border-radius:8px;padding:10px;font-weight:500;line-height:1.4}.field-row{min-height:48px;display:grid;grid-template-columns:minmax(110px,170px) 1fr auto;gap:12px;align-items:center;padding:10px 14px}.field-row:nth-child(odd){background:var(--card)}.field-row:nth-child(even){background:var(--card2)}.field-name{color:var(--text2);font-size:.82rem}.field-value{font-family:"Fira Code",monospace;font-size:.81rem;overflow-wrap:anywhere}.risk{font-size:.72rem;border-radius:999px;padding:5px 8px;border:1px solid}.risk.high{background:#2d0a0a;color:#fca5a5;border-color:#5c1414}.risk.medium{background:#2d1a00;color:#fbbf24;border-color:#5c3500}.risk.low{background:#0a2d1a;color:#4ade80;border-color:#145c35}.risk.info{background:#0a1a2d;color:#60a5fa;border-color:#14355c}.thumb{max-width:180px;border-radius:8px;border:1px solid var(--border)}@keyframes slide{from{opacity:0;transform:translateY(8px)}}
+    .summary{display:none;padding:18px}.summary.visible{display:block}.stat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.stat{border:1px solid var(--border);border-radius:8px;background:var(--card2);padding:16px}.stat b{display:block;font-size:2.5rem;color:var(--accent2)}.compare{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}.compare-card{position:relative;border:1px solid var(--border);border-radius:8px;overflow:hidden;background:var(--card2)}.labelbar{padding:8px 10px;font-weight:800}.labelbar.original{background:rgba(239,68,68,.12);color:#fca5a5}.labelbar.cleanbar{background:rgba(16,185,129,.12);color:#86efac}.preview{width:100%;aspect-ratio:4/3;object-fit:contain;background:#050913}.badge-overlay{position:absolute;top:46px;right:10px}.size-note{padding:10px;color:var(--text2);font-size:.84rem}.log-panel{padding:16px}.log-header{display:flex;justify-content:space-between;align-items:center}.log-list{margin:12px 0 0;padding:0;list-style:none;max-height:190px;overflow:auto;font-family:"Fira Code",monospace;font-size:.8rem;color:var(--text2)}.log-list li{padding:8px 0;border-bottom:1px solid var(--border)}.how{padding:18px}.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.step{border:1px solid var(--border);border-radius:8px;background:var(--card2);padding:16px}.footer{text-align:center;color:var(--text2);padding:24px}.socials{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:12px 0}.socials a{text-decoration:none}
+    @media (max-width:820px){.workspace{grid-template-columns:1fr}.stat-grid,.steps,.compare{grid-template-columns:1fr}.field-row{grid-template-columns:1fr}.toolbar{align-items:stretch}.toolbar-group,.btn{width:100%}.hero{min-height:360px}.panel-title{align-items:flex-start}.topbar{align-items:flex-start}.brand span{display:none}}
+    @media print{body{background:#fff;color:#111}.hero{min-height:auto;padding:12px;background:#fff;color:#111}.particle,.drop-zone,.queue-panel,.toolbar,.log-panel,.theme-toggle,.controls,.footer .socials{display:none!important}.wrap{margin:0}.workspace{display:block}.card{box-shadow:none;border:0}.meta-section{page-break-before:always}.footer:after{content:"Generated by MetaScrub — mrshrivasta.github.io";display:block;color:#111}}
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="particles" aria-hidden="true"></div>
+    <div class="topbar">
+      <div class="brand">
+        <svg class="logo" viewBox="0 0 64 64" aria-hidden="true"><path fill="#06b6d4" d="M32 4l22 8v17c0 14-9 25-22 31C19 54 10 43 10 29V12l22-8z"/><path fill="#070b12" opacity=".75" d="M22 35l18-18 8 8-18 18H20v-8z"/><path fill="#8b5cf6" d="M42 15l7 7-5 5-7-7z"/></svg>
+        <span class="muted">100% local</span>
+      </div>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle dark or light mode">☾ Theme</button>
+    </div>
+    <div class="hero-copy">
+      <h1>MetaScrub</h1>
+      <p>Erase hidden metadata. Protect your privacy.</p>
+      <span class="private-pill">🔒 100% Private — Files never leave your device</span>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="drop-zone card" id="dropZone" tabindex="0" role="button" aria-label="Upload files. Press Enter or Space to browse.">
+      <div>
+        <svg class="upload-icon" width="56" height="56" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 16V4m0 0L7 9m5-5l5 5M20 16.5a4.5 4.5 0 0 1-4.5 4.5h-8A5.5 5.5 0 0 1 6.2 10.15 7 7 0 0 1 19 13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <h2><span class="idle-text">Drop files to inspect metadata</span><span class="drop-hint">Drop files here!</span></h2>
+        <p class="muted">Browse or drag multiple images, PDFs, Office docs, MP3s, and videos.</p>
+        <button class="btn primary" id="browseBtn" type="button">Browse Files</button>
+        <div class="pills" aria-label="Supported formats"><span class="pill">JPG</span><span class="pill">PNG</span><span class="pill">PDF</span><span class="pill">DOCX</span><span class="pill">MP3</span><span class="pill">MP4</span><span class="pill">WEBP</span><span class="pill">TIFF</span></div>
+      </div>
+      <input id="fileInput" type="file" multiple hidden accept=".jpg,.jpeg,.png,.webp,.tif,.tiff,.heic,.pdf,.docx,.xlsx,.pptx,.mp3,.mp4,.mov,.avi,image/*,application/pdf,audio/mpeg,video/*">
+    </section>
+
+    <section class="toolbar card" aria-label="Batch operations">
+      <div class="toolbar-group"><button class="btn" id="scanAllBtn" type="button">Scan All Files</button><button class="btn primary" id="scrubAllBtn" type="button">Scrub All Files</button><button class="btn download" id="downloadZipBtn" type="button">Download All Clean Files</button></div>
+      <button class="btn" id="logToggle" type="button">Show Session Log</button>
+    </section>
+
+    <section id="summary" class="summary card" aria-live="polite"></section>
+
+    <section class="workspace">
+      <aside class="panel card queue-panel">
+        <h2 class="panel-title">File Queue <span id="queueCount" class="pill">0 files</span></h2>
+        <div id="queue" class="queue" aria-live="polite"></div>
+      </aside>
+      <section class="panel card" id="report" aria-live="polite">
+        <div class="empty">
+          <div>
+            <svg width="92" height="92" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M10.5 18a7.5 7.5 0 1 1 5.3-12.8A7.5 7.5 0 0 1 10.5 18Zm5.5-2 5 5" stroke="var(--accent2)" stroke-width="1.7" stroke-linecap="round"/></svg>
+            <h2>Select a file to inspect</h2>
+            <p class="muted">Metadata results will appear here after scanning.</p>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <section class="log-panel card" id="logPanel" hidden>
+      <div class="log-header"><h2>Session Log</h2><span class="muted">Not persisted</span></div>
+      <ul id="logList" class="log-list"></ul>
+    </section>
+
+    <details class="how card">
+      <summary><strong>How It Works</strong></summary>
+      <div class="steps">
+        <div class="step"><h3>⬆ Step 1 — Upload</h3><p class="muted">Your files are processed locally in your browser.</p></div>
+        <div class="step"><h3>🔎 Step 2 — Inspect</h3><p class="muted">Metadata fields are read using browser APIs and local parsing.</p></div>
+        <div class="step"><h3>🧽 Step 3 — Scrub</h3><p class="muted">A clean copy is created with metadata stripped where supported.</p></div>
+      </div>
+    </details>
+  </main>
+
+  <footer class="footer">
+    <p>Built with ♥ by Karanam Shrivasta</p>
+    <div class="socials">
+      <a class="btn" href="https://github.com/mrshrivasta" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a class="btn" href="https://www.linkedin.com/in/karanam-shrivasta/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+    </div>
+    <p>© 2025 Karanam Shrivasta — Your privacy matters.</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/exifr/dist/full.umd.cjs"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+  <script>
+    // Files are processed entirely client-side. No data is transmitted.
+    const files = [];
+    let selectedId = null;
+    const $ = (s) => document.querySelector(s);
+    const queue = $("#queue"), report = $("#report"), summary = $("#summary"), logList = $("#logList");
+    const riskTips = {
+      file:"Basic file properties help identify the file but are usually low privacy risk.",
+      identity:"GPS, author, and copyright fields can reveal who made a file and where.",
+      device:"Camera, software, and app details can link files across platforms.",
+      timestamps:"Dates can reveal when a photo, document, or recording was created.",
+      technical:"Technical values describe quality or format and are usually lower risk.",
+      thumbnail:"Embedded thumbnails may contain a separate copy of the image or location data."
+    };
+    const categoryLabels = {file:"File Info",identity:"Identity & Privacy",device:"Device & Software",timestamps:"Timestamps",technical:"Technical Details",thumbnail:"Embedded Thumbnails"};
+    const categoryIcons = {file:"📄",identity:"🔴",device:"🟡",timestamps:"🟡",technical:"🟢",thumbnail:"🔴"};
+    document.addEventListener("DOMContentLoaded", init);
+    function init(){
+      makeParticles();
+      if(localStorage.getItem("metascrub-theme")==="light") document.body.classList.add("light");
+      $("#themeToggle").addEventListener("click", toggleTheme);
+      $("#browseBtn").addEventListener("click", () => $("#fileInput").click());
+      $("#fileInput").addEventListener("change", handleFileSelect);
+      $("#scanAllBtn").addEventListener("click", scanAllFiles);
+      $("#scrubAllBtn").addEventListener("click", () => scrubAllFiles("all"));
+      $("#downloadZipBtn").addEventListener("click", downloadAllAsZip);
+      $("#logToggle").addEventListener("click", toggleLog);
+      const dz = $("#dropZone");
+      ["dragenter","dragover"].forEach(evt => dz.addEventListener(evt, handleDrag));
+      ["dragleave","drop"].forEach(evt => dz.addEventListener(evt, clearDrag));
+      dz.addEventListener("drop", handleFileDrop);
+      dz.addEventListener("keydown", e => { if(e.key==="Enter" || e.key===" "){ e.preventDefault(); $("#fileInput").click(); }});
+      renderQueue();
+    }
+    function makeParticles(){ const box = $(".particles"); for(let i=0;i<15;i++){ const p=document.createElement("i"); p.className="particle"; p.style.left=Math.random()*100+"%"; p.style.top=Math.random()*100+"%"; p.style.animationDelay=(Math.random()*5)+"s"; box.appendChild(p); } }
+    function handleDrag(e){ e.preventDefault(); $("#dropZone").classList.add("dragover"); }
+    function clearDrag(e){ e.preventDefault(); $("#dropZone").classList.remove("dragover"); }
+    function handleFileDrop(e){ addFiles([...e.dataTransfer.files]); }
+    function handleFileSelect(e){ addFiles([...e.target.files]); e.target.value=""; }
+    function addFiles(list){
+      list.filter(f=>detectFileType(f)!=="unknown").forEach(file=>{
+        const obj = {id:crypto.randomUUID(), file, name:file.name, size:file.size, type:detectFileType(file), status:"Pending", rawMetadata:{}, metadata:null, scrubbed:false, cleanBlob:null, beforeUrl:null, afterUrl:null};
+        files.push(obj); if(!selectedId) selectedId=obj.id; appendLog(`Queued ${file.name} — ${formatFileSize(file.size)}`); scanFile(obj);
+      });
+      renderQueue();
+    }
+    function detectFileType(file){
+      const n=file.name.toLowerCase(), t=file.type;
+      if(t.startsWith("image/") || /\.(jpe?g|png|webp|tiff?|heic)$/.test(n)) return "image";
+      if(t==="application/pdf" || n.endsWith(".pdf")) return "pdf";
+      if(/\.(docx|xlsx|pptx)$/.test(n)) return "office";
+      if(t.startsWith("audio/") || n.endsWith(".mp3")) return "audio";
+      if(t.startsWith("video/") || /\.(mp4|mov|avi)$/.test(n)) return "video";
+      return "unknown";
+    }
+    async function scanAllFiles(){ for(const f of files) await scanFile(f); renderPrivacySummary(); }
+    async function scanFile(fileObj){
+      try{
+        fileObj.status="Scanning"; renderQueue();
+        const scanners={image:scanImage,pdf:scanPDF,office:scanOffice,audio:scanAudio,video:scanVideo};
+        fileObj.rawMetadata = await scanners[fileObj.type](fileObj);
+        fileObj.metadata = categorizeMetadata(fileObj.rawMetadata, fileObj);
+        const risk = calculatePrivacyRisk(fileObj.metadata);
+        fileObj.status = risk.fields.length ? "Has Metadata" : "Clean";
+        appendLog(`Scanned ${fileObj.name} — ${countFields(fileObj.metadata)} metadata fields found (${risk.highRiskCount} high risk)`);
+      }catch(err){
+        fileObj.rawMetadata = {ScanError: err.message};
+        fileObj.metadata = categorizeMetadata(fileObj.rawMetadata, fileObj);
+        fileObj.status = "Has Metadata";
+        appendLog(`Scan issue for ${fileObj.name} — ${err.message}`);
+      }
+      renderQueue(); if(selectedId===fileObj.id) renderMetadataReport(fileObj); renderPrivacySummary();
+    }
+    async function scanImage(o){
+      const meta={};
+      try{ Object.assign(meta, await exifr.parse(o.file, {tiff:true, ifd0:true, exif:true, gps:true, interop:true, xmp:true, icc:true, iptc:true, jfif:true, ihdr:true, thumbnail:true}) || {}); }catch(e){ meta.EXIF="No readable EXIF block or unsupported browser decoder"; }
+      const bmp = await createImageBitmap(o.file).catch(()=>null);
+      if(bmp){ meta.Width=bmp.width; meta.Height=bmp.height; bmp.close(); }
+      if(meta.thumbnail){ meta.EmbeddedThumbnail = "Embedded thumbnail detected"; }
+      return meta;
+    }
+    async function scanPDF(o){
+      const text = await arrayBufferToLatin1(await o.file.arrayBuffer());
+      const keys=["Title","Author","Subject","Creator","Producer","CreationDate","ModDate","Keywords"];
+      const meta={};
+      keys.forEach(k=>{ const m=text.match(new RegExp("\\/"+k+"\\s*\\(([^)]*)\\)")); if(m) meta[k]=decodePdfString(m[1]); });
+      return meta;
+    }
+    async function scanOffice(o){
+      const zip = await JSZip.loadAsync(o.file);
+      const meta={};
+      await readXmlProps(zip, "docProps/core.xml", meta, ["creator","lastModifiedBy","created","modified","revision","description","keywords","title","subject"]);
+      await readXmlProps(zip, "docProps/app.xml", meta, ["Application","Company","AppVersion","Manager","Template"]);
+      return meta;
+    }
+    async function readXmlProps(zip,path,meta,names){
+      const entry=zip.file(path); if(!entry) return;
+      const xml=await entry.async("string");
+      names.forEach(n=>{ const r=new RegExp("<(?:[^:>]+:)?" + n + "[^>]*>([\\s\\S]*?)<\\/(?:[^:>]+:)?" + n + ">","i"); const m=xml.match(r); if(m && m[1]) meta[n]=decodeXml(m[1]); });
+    }
+    async function scanAudio(o){
+      const buf=await o.file.arrayBuffer(), view=new DataView(buf), bytes=new Uint8Array(buf), meta={};
+      const ascii=(s,l)=>String.fromCharCode(...bytes.slice(s,s+l)).replace(/\0/g,"").trim();
+      if(ascii(0,3)==="ID3"){
+        meta.ID3v2Version = `2.${view.getUint8(3)}.${view.getUint8(4)}`;
+        const tagSize = syncSafe(bytes[6],bytes[7],bytes[8],bytes[9]); let p=10;
+        while(p+10 < tagSize+10){
+          const id=ascii(p,4), size=view.getUint32(p+4); if(!id.trim() || size<=0) break;
+          const data=bytes.slice(p+10,p+10+size); parseFrame(meta,id,data); p += 10 + size;
+        }
+      }
+      if(buf.byteLength>128 && ascii(buf.byteLength-128,3)==="TAG"){
+        meta.Title ||= ascii(buf.byteLength-125,30); meta.Artist ||= ascii(buf.byteLength-95,30); meta.Album ||= ascii(buf.byteLength-65,30); meta.Year ||= ascii(buf.byteLength-35,4); meta.Comment ||= ascii(buf.byteLength-31,28); meta.Genre ||= `Code ${bytes[buf.byteLength-1]}`;
+      }
+      return meta;
+    }
+    function parseFrame(meta,id,data){
+      const textIds={TIT2:"Title",TPE1:"Artist",TALB:"Album",TRCK:"Track number",TYER:"Year",TDRC:"Year",TCON:"Genre",TCOM:"Composer",TPE2:"Album artist",USLT:"Lyrics"};
+      if(textIds[id]) meta[textIds[id]] = decodeTextFrame(data);
+      if(id==="COMM") meta.Comment = decodeTextFrame(data.slice(4));
+      if(id==="APIC"){ meta["Cover art"]="Embedded cover art detected"; const mimeEnd=data.indexOf(0,1); const mime=new TextDecoder().decode(data.slice(1,mimeEnd)); const picStart=data.indexOf(0,mimeEnd+2)+1; const blob=new Blob([data.slice(picStart)],{type:mime||"image/jpeg"}); meta.CoverArtUrl=URL.createObjectURL(blob); }
+    }
+    function decodeTextFrame(data){ if(!data.length) return ""; const enc=data[0]; const slice=data.slice(1); const decoder = enc===1||enc===2 ? new TextDecoder("utf-16") : new TextDecoder("latin1"); return decoder.decode(slice).replace(/\0/g,"").trim(); }
+    async function scanVideo(o){
+      const text = await arrayBufferToLatin1(await o.file.slice(0, Math.min(o.file.size, 3000000)).arrayBuffer());
+      const meta={};
+      [["creation_time",/creation[_-]time\W{0,20}([0-9T:Z+\-. ]{10,})/i],["encoder",/(?:encoder|©too)\W{0,20}([A-Za-z0-9 ._\-()]{3,80})/i],["comment",/(?:comment|©cmt)\W{0,20}([A-Za-z0-9 .,_\-()]{3,120})/i]].forEach(([k,r])=>{const m=text.match(r); if(m) meta[k]=m[1].trim();});
+      meta.VideoNote = "Read only. For video scrubbing use FFmpeg: ffmpeg -i input.mp4 -map_metadata -1 output.mp4";
+      return meta;
+    }
+    function categorizeMetadata(raw, o){
+      const cat={file:[field("Name",o.name,"info"),field("Size",formatFileSize(o.size),"info"),field("Type",o.file.type||o.type,"info"),field("Last Modified",new Date(o.file.lastModified).toLocaleString(),"info")],identity:[],device:[],timestamps:[],technical:[],thumbnail:[]};
+      Object.entries(raw||{}).forEach(([k,v])=>{
+        if(v==null || v==="" || k==="thumbnail") return;
+        const key=k.toLowerCase(), val=formatValue(v);
+        if(/gps|latitude|longitude|author|artist|creator|copyright|owner|company|lastmodifiedby/.test(key)) cat.identity.push(field(k,val,"high"));
+        else if(/make|model|software|producer|application|appversion|encoder|device|lens|camera/.test(key)) cat.device.push(field(k,val,"medium"));
+        else if(/date|time|created|modified|year/.test(key)) cat.timestamps.push(field(k,val,"medium"));
+        else if(/thumbnail|coverarturl|cover art/.test(key)) cat.thumbnail.push(field(k,val,"high", key.includes("url")?v:null));
+        else cat.technical.push(field(k,val,"low"));
+      });
+      if(raw.latitude && raw.longitude) cat.identity.push(field("GPS Coordinates", `${raw.latitude}, ${raw.longitude}`, "high", null, {lat:raw.latitude,lng:raw.longitude}));
+      return cat;
+    }
+    function field(name,value,risk,url,geo){ return {name,value,risk,url,geo}; }
+    function calculatePrivacyRisk(meta){ const all=Object.values(meta||{}).flat(); return {score:all.filter(f=>f.risk==="high").length, highRiskCount:all.filter(f=>f.risk==="high").length, mediumRiskCount:all.filter(f=>f.risk==="medium").length, fields:all.filter(f=>f.risk!=="info")}; }
+    function countFields(meta){ return Object.values(meta||{}).reduce((n,a)=>n+a.length,0); }
+    async function scrubFile(o, mode="all"){
+      if(o.type==="video"){ appendLog(`${o.name} is video read-only — use FFmpeg command shown in report`); return; }
+      o.cleanBlob = await ({image:scrubImage,pdf:scrubPDF,office:scrubOffice,audio:scrubAudio}[o.type])(o,mode);
+      o.scrubbed = true; o.status="Scrubbed";
+      if(o.type==="image"){ o.beforeUrl ||= URL.createObjectURL(o.file); o.afterUrl = URL.createObjectURL(o.cleanBlob); }
+      const label = typeof mode === "object" ? `${mode.categories.join(", ")} removed` : (mode==="privacy-only" ? "privacy fields removed" : "metadata removed");
+      appendLog(`Scrubbed ${o.name} — ${label}`);
+      renderQueue(); renderMetadataReport(o); renderPrivacySummary();
+    }
+    async function scrubImage(o){
+      const img = await loadImage(URL.createObjectURL(o.file));
+      const canvas=document.createElement("canvas"); canvas.width=img.naturalWidth; canvas.height=img.naturalHeight;
+      canvas.getContext("2d").drawImage(img,0,0);
+      return await new Promise(res=>canvas.toBlob(b=>res(b), outputImageType(o.file.type), .92));
+    }
+    async function scrubPDF(o,mode){
+      let text = await arrayBufferToLatin1(await o.file.arrayBuffer());
+      const keys = scrubKeys(mode, {identity:["Author","Creator","Keywords","Subject"], device:["Producer"], timestamps:["CreationDate","ModDate"], technical:["Title"]}, ["Title","Author","Subject","Creator","Producer","CreationDate","ModDate","Keywords"]);
+      keys.forEach(k=>{ text=text.replace(new RegExp("(\\/"+k+"\\s*\\()([^)]*)(\\))","g"), `$1$3`); });
+      return new Blob([latin1ToBytes(text)], {type:"application/pdf"});
+    }
+    async function scrubOffice(o,mode){
+      const zip=await JSZip.loadAsync(o.file), targets=["docProps/core.xml","docProps/app.xml"];
+      for(const path of targets){ const entry=zip.file(path); if(entry){ let xml=await entry.async("string"); xml=blankOfficeXml(xml, mode); zip.file(path, xml); } }
+      return await zip.generateAsync({type:"blob", mimeType:o.file.type||"application/zip"});
+    }
+    function blankOfficeXml(xml,mode){
+      const keys = scrubKeys(mode, {identity:["creator","lastModifiedBy","description","keywords","Company","Manager"], device:["Application","AppVersion","Template"], timestamps:["created","modified"], technical:["revision","title","subject"]}, ["creator","lastModifiedBy","created","modified","revision","description","keywords","title","subject","Application","Company","AppVersion","Manager","Template"]);
+      keys.forEach(n=>{ xml=xml.replace(new RegExp("(<(?:[^:>]+:)?" + n + "[^>]*>)([\\s\\S]*?)(<\\/(?:[^:>]+:)?" + n + ">)","gi"), `$1$3`); });
+      return xml;
+    }
+    function scrubKeys(mode, groups, all){ if(typeof mode==="object") return mode.categories.flatMap(c=>groups[c]||[]); if(mode==="privacy-only") return [...groups.identity,...groups.device]; return all; }
+    async function scrubAudio(o){
+      let bytes=new Uint8Array(await o.file.arrayBuffer()), start=0, end=bytes.length;
+      if(String.fromCharCode(...bytes.slice(0,3))==="ID3") start = 10 + syncSafe(bytes[6],bytes[7],bytes[8],bytes[9]);
+      if(end>128 && String.fromCharCode(...bytes.slice(end-128,end-125))==="TAG") end -= 128;
+      return new Blob([bytes.slice(start,end)], {type:o.file.type||"audio/mpeg"});
+    }
+    async function scrubAllFiles(mode){ for(const f of files) await scrubFile(f,mode); }
+    function downloadCleanFile(o){ if(!o.cleanBlob) return; const a=document.createElement("a"); a.href=URL.createObjectURL(o.cleanBlob); a.download=cleanName(o.name); a.click(); setTimeout(()=>URL.revokeObjectURL(a.href),1000); }
+    async function downloadAllAsZip(){
+      const clean=files.filter(f=>f.cleanBlob); if(!clean.length) return appendLog("No clean files ready for ZIP download");
+      const zip=new JSZip(); for(const f of clean) zip.file(cleanName(f.name), f.cleanBlob);
+      const blob=await zip.generateAsync({type:"blob"}); const a=document.createElement("a"); a.href=URL.createObjectURL(blob); a.download="metascrub_clean.zip"; a.click(); setTimeout(()=>URL.revokeObjectURL(a.href),1000);
+    }
+    function renderQueue(){
+      $("#queueCount").textContent=`${files.length} files`;
+      queue.innerHTML = files.length ? "" : `<p class="muted">No files yet.</p>`;
+      files.forEach(f=>{
+        const row=document.createElement("div"); row.className=`file-row ${selectedId===f.id?"active":""}`; row.tabIndex=0; row.role="button"; row.setAttribute("aria-label",`View ${f.name}`);
+        row.innerHTML=`<div class="type-icon ${f.type}">${typeLabel(f.type)}</div><div><div class="file-name">${escapeHtml(f.name)}</div><div class="file-meta">${formatFileSize(f.size)} · <span class="status ${slug(f.status)}">${f.status}</span></div></div><button class="btn danger" aria-label="Remove ${escapeHtml(f.name)}">×</button>`;
+        row.addEventListener("click",()=>{selectedId=f.id; renderQueue(); renderMetadataReport(f);});
+        row.addEventListener("keydown",e=>{ if(e.key==="Enter"||e.key===" "){e.preventDefault(); row.click();}});
+        row.querySelector("button").addEventListener("click",e=>{e.stopPropagation(); removeFile(f.id);});
+        queue.appendChild(row);
+      });
+    }
+    function renderMetadataReport(o){
+      if(!o){ report.innerHTML=`<div class="empty"><h2>Select a file to inspect</h2></div>`; return; }
+      const risk=calculatePrivacyRisk(o.metadata||{});
+      report.innerHTML=`<h2 class="panel-title">${escapeHtml(o.name)} ${o.scrubbed?'<span class="removed-badge">✓ Metadata Removed</span>':''}</h2>
+      <div class="score ${risk.highRiskCount?'risky':'clean-score'}" role="status"><div><strong>${risk.highRiskCount}</strong><div>${risk.highRiskCount? "privacy risks found":"0 privacy risks found"}</div></div><span>${risk.mediumRiskCount} medium · ${countFields(o.metadata)} total fields</span></div>
+      <div class="controls"><button class="btn primary" data-action="scrub-all">Scrub All Metadata</button><button class="btn" data-action="scrub-privacy">Scrub Privacy Fields Only</button>${o.cleanBlob?'<button class="btn download" data-action="download">Download Clean File</button>':''}</div>
+      <div class="checks"><label><input type="checkbox" data-cat="identity" checked> Identity</label><label><input type="checkbox" data-cat="device" checked> Device</label><label><input type="checkbox" data-cat="timestamps" checked> Timestamps</label><label><input type="checkbox" data-cat="technical"> Technical</label><button class="btn" data-action="scrub-custom">Scrub Selected Categories</button></div>
+      ${Object.keys(categoryLabels).map(k=>sectionHtml(k,o.metadata?.[k]||[])).join("")}
+      ${o.type==="video"?'<p class="muted">Full video metadata scrubbing requires server-side tools. For video scrubbing use FFmpeg: <code>ffmpeg -i input.mp4 -map_metadata -1 output.mp4</code></p>':""}
+      ${o.scrubbed && o.type==="image"?renderBeforeAfter(o):""}`;
+      report.querySelector('[data-action="scrub-all"]')?.addEventListener("click",()=>scrubFile(o,"all"));
+      report.querySelector('[data-action="scrub-privacy"]')?.addEventListener("click",()=>scrubFile(o,"privacy-only"));
+      report.querySelector('[data-action="scrub-custom"]')?.addEventListener("click",()=>scrubFile(o,{mode:"custom", categories:[...report.querySelectorAll("[data-cat]:checked")].map(i=>i.dataset.cat)}));
+      report.querySelector('[data-action="download"]')?.addEventListener("click",()=>downloadCleanFile(o));
+    }
+    function sectionHtml(key,items){
+      return `<details class="meta-section" open><summary><div class="section-head"><span>${categoryIcons[key]}</span><span>${categoryLabels[key]}</span><span class="tip" tabindex="0" aria-label="${escapeHtml(riskTips[key])}" data-tip="${escapeHtml(riskTips[key])}">?</span><span class="count pill">${items.length}</span><span>⌄</span></div></summary>${items.length?items.map(rowHtml).join(""):`<div class="field-row"><span class="field-name">Status</span><span class="field-value muted">No fields found</span><span class="risk info">ℹ Info</span></div>`}</details>`;
+    }
+    function rowHtml(f){
+      const val = f.geo ? `${escapeHtml(f.value)} <a href="https://maps.google.com/?q=${encodeURIComponent(f.geo.lat+','+f.geo.lng)}" target="_blank" rel="noopener noreferrer">📍 View on Map</a>` : f.url ? `<img class="thumb" src="${f.url}" alt="Embedded thumbnail or cover art preview">` : escapeHtml(String(f.value));
+      return `<div class="field-row"><span class="field-name">${escapeHtml(f.name)}</span><span class="field-value">${val}</span><span class="risk ${f.risk}">${riskText(f.risk)}</span></div>`;
+    }
+    function renderBeforeAfter(o){
+      const pct = Math.round((1-(o.cleanBlob.size/o.size))*100);
+      return `<div class="compare"><div class="compare-card"><div class="labelbar original">Original</div><img class="preview" src="${o.beforeUrl}" alt="Original preview for ${escapeHtml(o.name)}"><span class="risk high badge-overlay">🔴 ${countFields(o.metadata)} fields</span><div class="size-note">${formatFileSize(o.size)}</div></div><div class="compare-card"><div class="labelbar cleanbar">Scrubbed</div><img class="preview" src="${o.afterUrl}" alt="Scrubbed preview for ${escapeHtml(o.name)}"><span class="risk low badge-overlay">✓ Clean</span><div class="size-note">Reduced from ${formatFileSize(o.size)} to ${formatFileSize(o.cleanBlob.size)} (${pct>=0?"−":"+"}${Math.abs(pct)}%)</div></div></div>`;
+    }
+    function renderPrivacySummary(){
+      if(!files.some(f=>f.metadata)) return;
+      const scanned=files.filter(f=>f.metadata), all=scanned.flatMap(f=>Object.values(f.metadata).flat()), high=all.filter(f=>f.risk==="high").length;
+      const gps=all.filter(f=>/gps|latitude|longitude/i.test(f.name)).length, authors=files.filter(f=>JSON.stringify(f.rawMetadata).match(/author|creator|artist|company/i)).length;
+      const devices=new Set(all.filter(f=>/make|model|software|producer|application|encoder/i.test(f.name)).map(f=>f.value));
+      summary.classList.add("visible");
+      summary.innerHTML=`<h2>${high? "⚠ Privacy Report Card":"🛡 Privacy Report Card"}</h2><div class="stat-grid"><div class="stat"><b>${scanned.length}</b><span>Total files scanned</span></div><div class="stat"><b>${all.length}</b><span>Total metadata fields found</span></div><div class="stat"><b>${high}</b><span>High risk fields found</span></div><div class="stat"><b>${gps}</b><span>GPS locations found</span></div><div class="stat"><b>${authors}</b><span>Files with author info</span></div><div class="stat"><b>${devices.size}</b><span>Unique device signatures</span></div></div>`;
+    }
+    function appendLog(message){ const li=document.createElement("li"); li.textContent=`${new Date().toLocaleTimeString()} — ${message}`; logList.prepend(li); }
+    function toggleLog(){ const p=$("#logPanel"); p.hidden=!p.hidden; $("#logToggle").textContent=p.hidden?"Show Session Log":"Hide Session Log"; }
+    function toggleTheme(){ document.body.classList.toggle("light"); localStorage.setItem("metascrub-theme", document.body.classList.contains("light")?"light":"dark"); }
+    function removeFile(id){ const i=files.findIndex(f=>f.id===id); if(i>=0){ appendLog(`Removed ${files[i].name}`); files.splice(i,1); selectedId=files[0]?.id||null; renderQueue(); renderMetadataReport(files.find(f=>f.id===selectedId)); renderPrivacySummary(); } }
+    function formatFileSize(bytes){ if(!bytes) return "0 B"; const u=["B","KB","MB","GB"], i=Math.min(Math.floor(Math.log(bytes)/Math.log(1024)),u.length-1); return `${(bytes/Math.pow(1024,i)).toFixed(i?1:0)} ${u[i]}`; }
+    function formatValue(v){ if(v instanceof Date) return v.toLocaleString(); if(Array.isArray(v)) return v.join(", "); if(typeof v==="object") return JSON.stringify(v); return String(v); }
+    function cleanName(name){ const i=name.lastIndexOf("."); return i>0 ? `${name.slice(0,i)}_clean${name.slice(i)}` : `${name}_clean`; }
+    function typeLabel(t){ return {image:"IMG",pdf:"PDF",office:"DOC",audio:"AUD",video:"VID",unknown:"?"}[t]; }
+    function slug(s){ return s.toLowerCase().replace(/\s+/g,"-"); }
+    function riskText(r){ return {high:"🔴 High Risk",medium:"🟡 Medium",low:"🟢 Low Risk",info:"ℹ Info"}[r]; }
+    function syncSafe(a,b,c,d){ return (a<<21)|(b<<14)|(c<<7)|d; }
+    function outputImageType(t){ return /png|webp|jpeg/.test(t) ? t : "image/png"; }
+    function loadImage(src){ return new Promise((res,rej)=>{ const img=new Image(); img.onload=()=>res(img); img.onerror=rej; img.src=src; }); }
+    function decodeXml(s){ const el=document.createElement("textarea"); el.innerHTML=s; return el.value.trim(); }
+    function decodePdfString(s){ return s.replace(/\\([()\\])/g,"$1").trim(); }
+    async function arrayBufferToLatin1(buf){ return new TextDecoder("latin1").decode(buf); }
+    function latin1ToBytes(str){ const out=new Uint8Array(str.length); for(let i=0;i<str.length;i++) out[i]=str.charCodeAt(i)&255; return out; }
+    function escapeHtml(s){ return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#039;"}[c])); }
+  </script>
+</body>
+</html>
